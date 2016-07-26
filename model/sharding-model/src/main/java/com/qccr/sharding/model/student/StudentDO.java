@@ -2,7 +2,7 @@
  * qccr.com Inc.
  * Copyright (c) 2014-2016 All Rights Reserved.
  */
-package com.qccr.dinner.model.student;
+package com.qccr.sharding.model.student;
 
 import java.io.Serializable;
 

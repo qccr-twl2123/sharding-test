@@ -2,11 +2,11 @@
  * qccr.com Inc.
  * Copyright (c) 2014-2016 All Rights Reserved.
  */
-package com.qccr.dinner.dal.student;
+package com.qccr.sharding.dal.student;
 
 import java.util.List;
 
-import com.qccr.dinner.model.student.StudentDO;
+import com.qccr.sharding.model.student.StudentDO;
 
 /**
  * 

@@ -2,7 +2,7 @@
  * qccr.com Inc.
  * Copyright (c) 2014-2016 All Rights Reserved.
  */
-package com.qccr.dinner.biz.service.booking.impl;
+package com.qccr.sharding.biz.service.student.impl;
 
 import java.util.List;
 
@@ -10,10 +10,12 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.qccr.dinner.biz.service.booking.UserService;
-import com.qccr.dinner.dal.student.StudentDao;
-import com.qccr.dinner.dal.student.UserDao;
-import com.qccr.dinner.model.student.UserDO;
+import com.qccr.sharding.biz.service.student.UserService;
+import com.qccr.sharding.dal.student.StudentDao;
+import com.qccr.sharding.dal.student.UserDao;
+import com.qccr.sharding.model.student.UserDO;
+
+
 
 /**
  * 

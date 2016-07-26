@@ -2,9 +2,9 @@
  * qccr.com Inc.
  * Copyright (c) 2014-2016 All Rights Reserved.
  */
-package com.qccr.dinner.biz.service.booking;
+package com.qccr.sharding.biz.service.student;
 
-import com.qccr.dinner.model.student.StudentDO;
+import com.qccr.sharding.model.student.StudentDO;
 
 /**
  * 

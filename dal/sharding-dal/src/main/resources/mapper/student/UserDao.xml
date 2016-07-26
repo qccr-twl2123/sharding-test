@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qccr.dinner.dal.student.UserDao">
+<mapper namespace="com.qccr.sharding.dal.student.UserDao">
 
-    <resultMap id="resultMap" type="com.qccr.dinner.model.student.UserDO">
+    <resultMap id="resultMap" type="com.qccr.sharding.model.student.UserDO">
 		<result column="id" property="id" />
 		<result column="user_id" property="userId" />
 		<result column="name" property="name" />
