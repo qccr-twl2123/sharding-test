@@ -17,6 +17,7 @@ import com.qccr.sharding.model.student.UserDO;
 
 
 
+
 /**
  * 
  * @author xierongli
@@ -42,34 +43,5 @@ public class UserServiceImpl implements UserService{
         return userDao.findByUserIds(ids);
     }
 
-//    @Transactional(propagation=Propagation.REQUIRED)
-//    public void transactionTestSucess() {
-//        UserDO u = new UserDO();
-//        u.setUserId(13);
-//        u.setAge(25);
-//        u.setName("war3 1.27");
-//        userDao.insert(u);
-//        
-//        StudentDO student = new StudentDO();
-//        student.setStudentId(21);
-//        student.setAge(21);
-//        student.setName("hehe");
-//        studentDao.insert(student);
-//    }
-//
-//    @Transactional(propagation=Propagation.REQUIRED)
-//    public void transactionTestFailure() throws IllegalAccessException {
-//        UserDO u = new UserDO();
-//        u.setUserId(13);
-//        u.setAge(25);
-//        u.setName("war3 1.27 good");
-//        userDao.insert(u);
-//        
-//        StudentDO student = new StudentDO();
-//        student.setStudentId(21);
-//        student.setAge(21);
-//        student.setName("hehe1");
-//        studentDao.insert(student);
-//        throw new IllegalAccessException();
-//    }
+
 }

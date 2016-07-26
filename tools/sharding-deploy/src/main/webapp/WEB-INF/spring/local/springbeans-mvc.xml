@@ -24,7 +24,9 @@
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<constructor-arg value="UTF-8" />
 			</bean>
+			<!-- 
 			<bean class="com.qccr.dinner.web.view.MappingHttpMessageConverter" />
+			 -->
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 

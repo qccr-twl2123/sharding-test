@@ -23,46 +23,15 @@
 			<groupId>com.google.zxing</groupId>
 			<artifactId>javase</artifactId>
 		</dependency>
-		
-		<dependency>
-				<groupId>com.qccr.datacenter</groupId>
-				<artifactId>datacenter-facade</artifactId>			
-	   </dependency>
-		
 		<dependency>
 			<groupId>com.qccr.sharding</groupId>
-			<artifactId>sharding-integration</artifactId>
+			<artifactId>sharding-model</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.qccr.sharding</groupId>
 			<artifactId>sharding-dal</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-		</dependency>
 		
-		<dependency>
-			<groupId>com.qccr.framework.insight.plugin</groupId>
-			<artifactId>message-rocketmq</artifactId>
-		</dependency>
-		<!-- eventbus -->
-        <dependency>
-		  <groupId>com.qccr.framework.insight.plugin</groupId>
-	      <artifactId>eventbus</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.qccr.framework</groupId>
-			<artifactId>insight</artifactId>
-		</dependency>
 		<dependency>
 		    <groupId>com.dangdang</groupId>
 		    <artifactId>sharding-jdbc-core</artifactId>

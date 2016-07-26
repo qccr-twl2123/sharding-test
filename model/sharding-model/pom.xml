@@ -17,11 +17,7 @@
 			<groupId>com.qccr.sharding</groupId>
 			<artifactId>sharding-common</artifactId>
 		</dependency>
-		<!-- authmanager -->
-		<dependency>
-			<groupId>com.qccr.authoritymanager</groupId>
-			<artifactId>authoritymanager-facade</artifactId>
-		</dependency>
+		
 		<!-- springframework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -52,10 +48,6 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.qccr.commons</groupId>
-			<artifactId>knife</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>

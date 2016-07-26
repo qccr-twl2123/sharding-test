@@ -1,4 +1,4 @@
-package com.qccr.dinner.controller.base;
+package com.qccr.sharding.controller.base;
 
 public class BaseController {
 

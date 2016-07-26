@@ -48,10 +48,7 @@
 			<artifactId>aspectjrt</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.qccr.commons</groupId>
-			<artifactId>knife</artifactId>
-		</dependency>
+	
 
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -207,6 +204,5 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 		</dependency>
-		
 	</dependencies>
 </project>

@@ -85,23 +85,7 @@
 				<version>1.8.7</version>
 			</dependency>
 
-			<dependency>
-				<groupId>com.qccr.commons</groupId>
-				<artifactId>knife</artifactId>
-				<version>1.0.4.release</version>
-			</dependency>
-
-			<dependency>
-  				<groupId>com.qccr.commons</groupId>
-  				<artifactId>commondata</artifactId>
-  				<version>1.0.7</version>
-			</dependency>
-			
-			<dependency>
-				<groupId>com.qccr.framework</groupId>
-				<artifactId>insight</artifactId>
-				<version>1.0.4</version>
-			</dependency>
+		
 			
 			<dependency>
 				<groupId>com.google.guava</groupId>
@@ -281,62 +265,7 @@
 				<artifactId>fastjson</artifactId>
 				<version>1.1.35</version>
 			</dependency>
-			<!-- facade -->
-			<dependency>
-				<groupId>com.qccr.contentmanager</groupId>
-				<artifactId>contentmanager-facade</artifactId>
-				<version>1.0.4</version>
-			</dependency>
-			<dependency>
-  				<groupId>com.toowell</groupId>
-  				<artifactId>carman-remote</artifactId>
- 				<version>1.2.3</version>
-			</dependency>
-			<dependency>
-				<groupId>com.qccr.ordercenter</groupId>
-				<artifactId>ordercenter-facade</artifactId>
-				<version>1.5.0</version>
-			</dependency>
-			<dependency>
-				<groupId>com.qccr.goodscenter</groupId>
-				<artifactId>goodscenter-facade</artifactId>
-				<version>1.0.20</version>
-			</dependency>
-			<dependency>
-				<groupId>com.qccr.merchantcenter</groupId>
-				<artifactId>merchantcenter-facade</artifactId>
-				<version>1.0.0</version>
-			</dependency>
-			<dependency>
-				<groupId>com.toowell.market</groupId>
-				<artifactId>market-remote</artifactId>
-				<version>1.0.10</version>
-			</dependency>
-			<dependency>
-				<groupId>com.toowell.membercenter</groupId>
-				<artifactId>membercenter-facade</artifactId>
-				<version>1.0.10</version>
-			</dependency>
-			<dependency>
-				<groupId>com.qccr.marketcenter</groupId>
-				<artifactId>marketcenter-facade</artifactId>
-				<version>1.2.1</version>
-			</dependency>
-			<dependency>
-				<groupId>com.qccr.bmarketcenter</groupId>
-				<artifactId>bmarketcenter-facade</artifactId>
-				<version>1.0.1</version>
-			</dependency>
-			<dependency>
-				<groupId>com.toowell.shopAdmin</groupId>
-				<artifactId>shopAdmin-remote</artifactId>
-				<version>1.0.7</version>
-			</dependency>
-			<dependency>
-				<groupId>com.qccr.datacenter</groupId>
-				<artifactId>datacenter-facade</artifactId>
-				<version>1.0.5</version>
-			</dependency>
+			
 			<dependency>
 				<groupId>org.apache.poi</groupId>
 				<artifactId>poi</artifactId>
@@ -347,23 +276,7 @@
 				<artifactId>poi-ooxml</artifactId>
 				<version>3.11</version>
 			</dependency>
-			<dependency>
-				<groupId>com.qccr.framework.insight.plugin</groupId>
-				<artifactId>message-rocketmq</artifactId>
-				<version>1.0.1.rc1</version>
-			</dependency>
-			<!-- eventbus -->
-        	<dependency>
-		 		<groupId>com.qccr.framework.insight.plugin</groupId>
-	      		<artifactId>eventbus</artifactId>
-	      		<version>1.0.1</version>
-			</dependency>
-			<!-- 统一权限平台 -->
-			<dependency>
-				<groupId>com.qccr.authoritymanager</groupId>
-				<artifactId>authoritymanager-facade</artifactId>
-				<version>1.0.1</version>
-			</dependency>
+			
 			<!-- ZK -->
 			<dependency>
 				<groupId>org.apache.zookeeper</groupId>
@@ -393,9 +306,6 @@
 			    <artifactId>sharding-jdbc-core</artifactId>
 			    <version>1.0.0</version>
 			</dependency>
-			
-			
-			
 		</dependencies>
 
 	</dependencyManagement>

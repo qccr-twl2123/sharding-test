@@ -17,6 +17,15 @@
 			<artifactId>sharding-biz</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.qccr.sharding</groupId>
+			<artifactId>sharding-model</artifactId>
+		</dependency>
+		<dependency>
+				<groupId>com.qccr.framework</groupId>
+				<artifactId>insight</artifactId>
+				<version>1.0.4</version>
+			</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
@@ -60,11 +69,7 @@
 			<groupId>com.jdbc.impala</groupId>
 			<artifactId>ImpalaJDBC41</artifactId>
 		</dependency>
-		<!-- 统一权限平台 -->
-		<dependency>
-			<groupId>com.qccr.authoritymanager</groupId>
-			<artifactId>authoritymanager-facade</artifactId>
-		</dependency>
+	
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>

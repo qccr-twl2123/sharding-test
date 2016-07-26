@@ -9,7 +9,7 @@
     <param-value>/WEB-INF/env/logback.xml</param-value>
   </context-param>
   <listener> 
-   	<listener-class>com.qccr.framework.insight.listener.ContextConfigListener</listener-class>
+     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
   </listener>
   <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -36,7 +36,6 @@
   <servlet>
     <servlet-name>springmvc</servlet-name>
    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <!-- <servlet-class>com.qccr.authoritymanager.spring.servlet.ProxyDispatcherServlet</servlet-class> -->
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>
