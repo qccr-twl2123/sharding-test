@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<title>邀请人员列表</title>
+<link href="/resources/css/lib.css" rel="stylesheet">
+<!-- //<link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet"> -->
+<link href="../../../resources/css/sui.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="http://sui.taobao.org/sui/.package/css/sui-append.css?r=2014.09.11" />
+<script type="text/javascript" src="../../../resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../../resources/js/sui.min.js"></script>
+<script type="text/javascript" src="../../../resources/js/lib.js"></script>
+<style>
+.mb0 {
+	margin-bottom: 0px !important;
+}
+</style>
+<script type="text/javascript">
+Date.prototype.Format = function (fmt) { 
+    var o = {
+        "M+": this.getMonth() + 1, //月份 
+        "d+": this.getDate(), //日 
+        "h+": this.getHours(), //小时 
+        "m+": this.getMinutes(), //分 
+        "s+": this.getSeconds(), //秒 
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+        "S": this.getMilliseconds() //毫秒 
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+
+$(function(){
+	search(1);
+});
+
+var search=function(pageNum){
+    var pageSize=10;
+    var invitecode=getQueryString("invitecode");
+	var start=getQueryString("start");
+	var end=getQueryString("end");
+	var param = {"invitecode":invitecode,"start":start,"end":end,pageNum:pageNum,pageSize:pageSize}; 
+    $.ajax({
+        type: "get",
+        dataType: "json",
+        data:param,
+        url: "/channel/userInvitedList.json",
+        success: function (data) {    
+        	var htm = "";
+        	if(data.webResult.data){
+		 		for (var i = 0; i < data.webResult.data.length; i++) {
+		 			htm += "<tr>";
+		 			htm += "<td class='center aligned'><label id='username'>" + data.webResult.data[i].username + "</label></td>";
+		 			htm += "<td class='center aligned'><label id='inviteCode'>" + data.webResult.data[i].inviteCode + "</label></td>";				
+		 			var date=new Date(data.webResult.data[i].createTime).Format("yyyy-MM-dd hh:mm:ss");				
+		 			htm += "<td class='center aligned'><label id='createTime'>" + date + "</label></td>";
+		 			htm += "<td class='center aligned'><label id='orders'>" + data.webResult.data[i].orders + "</label></td>";
+		 			htm += "<td class='center aligned'><label id='city'>" + data.webResult.data[i].city + "</label></td>";
+		 			htm += "<td class='center aligned'><label id='source'>" + data.webResult.data[i].source + "</label></td>";							
+		 			htm += "</tr>";
+		 		}
+        	}
+ 			$("#userList").html(htm);
+ 			if(data.webResult.data.length!=0){
+                var pageObj = loadPage();
+                var pg = new pageObj('.pg', pageNum, data.webResult.total, search, pageSize);
+                pg.printHtml();
+            }else{
+                $(".pg").children().remove();
+            }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+        	console.log(XMLHttpRequest.status);
+        	console.log(XMLHttpRequest.readyState);
+        	console.log(textStatus);
+        }
+    });
+}
+ 
+</script>
+
+<script>
+function user(){
+	var user=document.getElementById("user").innerHTML;
+	//alert(user);
+	window.location.href="userChannelRedirect.do?username="+user;
+}
+function merchant(){
+	var user=document.getElementById("merchant").innerHTML;
+	//alert(user);
+	window.location.href="merchantChannelRedirect.do?username="+user;
+}
+function custom(){
+	//var value = document.getElementById("input1").value;
+	var user=document.getElementById("custom").innerHTML;
+	//alert(user);
+	window.location.href="customedChannelRedirect.do?username="+user;
+}
+</script>
+	</head>
+
+	<body>
+
+		<div class="sui-container ui-sortable">
+			<ul class="sui-nav nav-tabs mb0 nav-primary">
+				<li >
+					<a href="#index" >
+						<h4>邀请人员列表</h4>
+					</a>
+				</li>
+		
+			</ul>
+			<div class="tab-content tab-wraped">
+				<div id="index" class="tab-pane active">
+			
+					<table id="List" class="sui-table table-bordered">
+						<thead>
+							<tr>
+								<th class='center aligned'>被邀请账号</th>
+								<th class='center aligned'>被邀请人邀请码</th>
+								<th class='center aligned'>注册时间</th>
+								<th class='center aligned'>订单数</th>
+								<th class='center aligned'>注册城市</th>
+								<th class='center aligned'>注册渠道</th>
+							</tr>
+						</thead>
+				
+						<tbody id="userList">
+						
+						</tbody>
+					</table>
+					
+					<div class='pg'></div>
+				</div>
+				
+		
+			</div>
+
+		</div>
+	</body>
+
+</html>

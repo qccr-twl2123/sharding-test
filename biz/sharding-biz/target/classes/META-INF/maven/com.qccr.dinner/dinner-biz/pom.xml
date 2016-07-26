@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>com.qccr.dinner</groupId>
+		<artifactId>dinner-parent</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>dinner-biz</artifactId>
+	<packaging>jar</packaging>
+
+
+	<dependencies>
+	
+	    <dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+		</dependency>
+		
+		<dependency>
+				<groupId>com.qccr.datacenter</groupId>
+				<artifactId>datacenter-facade</artifactId>			
+	   </dependency>
+		
+		<dependency>
+			<groupId>com.qccr.dinner</groupId>
+			<artifactId>dinner-integration</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.qccr.dinner</groupId>
+			<artifactId>dinner-dal</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.qccr.framework.insight.plugin</groupId>
+			<artifactId>message-rocketmq</artifactId>
+		</dependency>
+		<!-- eventbus -->
+        <dependency>
+		  <groupId>com.qccr.framework.insight.plugin</groupId>
+	      <artifactId>eventbus</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.qccr.framework</groupId>
+			<artifactId>insight</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>com.dangdang</groupId>
+		    <artifactId>sharding-jdbc-core</artifactId>
+		</dependency>
+		
+	</dependencies>
+
+</project>

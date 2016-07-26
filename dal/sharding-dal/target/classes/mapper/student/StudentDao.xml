@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qccr.dinner.dal.student.StudentDao">
+
+    <resultMap id="resultMap" type="com.qccr.dinner.model.student.StudentDO">
+		<result column="id" property="id" />
+		<result column="student_id" property="studentId" />
+		<result column="name" property="name" />
+		<result column="age" property="age" />
+	</resultMap>
+
+	<sql id="all_column">
+		student_id, name, age 
+	</sql>
+	  <insert id="insert">
+    insert into t_student (<include refid="all_column"/>) values (#{studentId},#{name},#{age})
+  </insert>
+  
+  <select id="findAll" resultMap="resultMap">
+   select <include refid="all_column"/> from t_student
+  </select>
+  
+  <select id="findByStudentIds" resultMap="resultMap">
+    select <include refid="all_column"/> from t_student where student_id in (
+     <foreach collection="list" item="item" separator=",">
+        #{item}
+     </foreach>
+    )
+  </select>
+  
+ 
+	
+</mapper>

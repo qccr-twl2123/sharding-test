@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" 
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:rdb="http://www.dangdang.com/schema/ddframe/rdb"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd 
+                        http://www.springframework.org/schema/tx 
+                        http://www.springframework.org/schema/tx/spring-tx.xsd
+                        http://www.springframework.org/schema/context 
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.dangdang.com/schema/ddframe/rdb 
+                        http://www.dangdang.com/schema/ddframe/rdb/rdb.xsd">
+        
+        	
+	<context:component-scan base-package="com.study.dangdang.sharding.jdbc" />
+
+    <bean id="sharding_0" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/sharding_0"/>
+        <property name="username" value="root"/>
+        <property name="password" value="xrl123456"/>
+    </bean>
+    
+    <bean id="sharding_1" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/sharding_1"/>
+        <property name="username" value="root"/>
+        <property name="password" value="xrl123456"/>
+    </bean>
+    
+	
+	<bean id="transactionTemplate"
+		class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="transactionManager" />
+	</bean>
+	<!--t_user分库策略  -->
+	<rdb:strategy id="userDatabaseShardingStrategy" sharding-columns="user_id" algorithm-class="com.study.dangdang.sharding.jdbc.algorithm.UserSingleKeyDatabaseShardingAlgorithm"/>
+    <!--t_user分表策略  -->
+    <rdb:strategy id="userTableShardingStrategy" sharding-columns="user_id" algorithm-class="com.study.dangdang.sharding.jdbc.algorithm.UserSingleKeyTableShardingAlgorithm"/>
+    
+	 <rdb:data-source id="shardingDataSource">
+        <rdb:sharding-rule data-sources="sharding_0, sharding_1">
+            <rdb:table-rules>
+                <rdb:table-rule logic-table="t_user" actual-tables="t_user_0" database-strategy="userDatabaseShardingStrategy" table-strategy="userTableShardingStrategy"/>
+            </rdb:table-rules>
+        </rdb:sharding-rule>
+    </rdb:data-source>
+   
+	
+	<bean id="fortSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+		<property name="configLocation" value="/WEB-INF/env/configuration.xml"/>
+		<property name="dataSource" ref="shardingDataSource" />
+		<property name="mapperLocations">
+			<list>
+				<value>classpath*:mapper/notify/*Dao.xml</value>
+				<value>classpath*:mapper/student/*Dao.xml</value>
+			</list>
+		</property> 
+	</bean> 
+	
+	<!-- 自动扫描映射器   	-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+        <property name="basePackage" value="com.qccr.dinner.dal" />
+        <property name="sqlSessionFactoryBeanName" value="fortSqlSessionFactory" />
+    </bean>
+    
+    <!-- 开启事务注解驱动 -->  
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="shardingDataSource" />
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    
+</beans>

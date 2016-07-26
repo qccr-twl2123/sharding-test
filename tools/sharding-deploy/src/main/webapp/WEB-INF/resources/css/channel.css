@@ -1,0 +1,12 @@
+  .table th{
+         font-size:17px;
+         text-align:center;
+     }
+     .table td{
+         padding: 20px 8px;
+         font-size:15px;
+     }
+     .table img{
+         width:260px;
+         height:260px;
+     }

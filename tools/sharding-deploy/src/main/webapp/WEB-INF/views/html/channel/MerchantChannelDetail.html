@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>商家渠道</title>
+<meta name="author" content="SHOP++ Team" />
+<meta name="copyright" content="SHOP++" />
+<link href="../../../resources/css/common.css" rel="stylesheet" type="text/css" />
+<link href="../../../resources/css/loginpage.css" rel="stylesheet" type="text/css" />
+<link href="../../../resources/css/page.css" rel="stylesheet" type="text/css" />
+<link href="../../../resources/css/sui.min.css" rel="stylesheet"/>
+<link href="../../../resources/css/channel.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../../resources/js/jquery.js"></script>
+<script type="text/javascript" src="../../../resources/js/common.js"></script>
+<script type="text/javascript" src="../../../resources/datePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="../../../resources/js/jquery.tmpl.js"></script>
+<script type="text/javascript" src="../../../resources/js/kkpagerCommon.js"></script>
+<script type="text/javascript" src="../../../resources/js/jquery.minchannel.js"></script>
+<script type="text/javascript" src="../../../resources/js/sui.min.js"></script>
+<script type="text/javascript" src="../../../resources/js/merchantchannel.js"></script>
+</head>
+<body>	
+	
+        <div class="sui-container ui-sortable">
+        <div style="margin:0 auto;width:600px">
+        <!-- action="downloadPhoto.do" -->
+          <form method='post' target='hiddenwin' class='form-condensed'  > 
+			<table class="sui-table table table-vzebra" style="width: 600px;">
+				<thead>
+					<tr>
+						<th colspan="2">渠道信息</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td width="130px">渠道商户名称</td>
+						<td><label id="channelName"></label></td>
+					</tr>
+					<tr>
+						<td>联系人</td>
+						<td><label id="nick"></label></td>
+					</tr>
+					<tr>
+						<td>联系电话</td>
+						<td><label id="phoneNum"></label></td>
+					</tr>
+						<tr>
+						<td>邀请码</td>
+						<td><label id="inviteCode"></label></td>
+					</tr>
+						
+					<tr>
+						<td>二维码</td>
+						<td>
+						
+							<span style="display: block;float: left;"><img id="inCode"/></span>
+							<br /><br /><br />
+							<span>
+								<input type="radio" checked="checked" name="size" value="256"/><span>256*256</span>
+							<br /><br />
+							<input type="radio" name="size" value="512"/><span>512*512</span>
+							<br /><br />
+							<input type="radio" name="size" value="1024"/><span>1024*1024</span>
+							<br /><br />
+							<input type="button" onclick="javascript:button_onclick();" value="下载高清二维码"/>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>渠道备注说明</td>
+						<td><label id="extra"></label></td>
+					</tr>
+				</tbody>
+			</table>
+			</form>
+			</div>
+			</div>
+		
+	</body>
+
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<title>新建待办事项</title>
+		<link rel="stylesheet" href="../../../../resources/sui/css/sui.css" />
+		<link rel="stylesheet" href="../../../../resources/sui/css/sui-append.css" />
+		<link rel="stylesheet" type="text/css" href="../../../resources/sui/custom.css" />
+		<style>
+			/*自己调整宽度*/
+			.mb0 {
+				margin-bottom: 0px !important;
+			}
+		</style>
+		<script type="text/javascript" src="../../../resources/sui/js/jquery.js"></script>
+		<script type="text/javascript" src="../../../resources/sui/js/sui.js"></script>
+
+		<script type="text/javascript">
+		function render(pageNo,total){
+			$('#pagetest').pagination({
+				currentPage: pageNo, //默认第一页
+				itemsCount: total, //数据的总条数
+				pageSize: 10, //每页显示的条数
+				styleClass: ['pagination-large'], //分页样式数组
+				showCtrl: true, //是否展示总页数和跳转控制器，默认为false
+				displayPage: 6, //显示多少个页码
+				onSelect: function(num) { //点击页码时的回调函数
+					queryDataList(num);
+				}
+			})
+		}
+		
+	$(function(){
+			var date=new Date();
+			var year=date.getFullYear(),month=(date.getMonth()+1),day=(date.getDate()-1);
+			var datestr=year+"-"+month+"-"+day;
+				$(function() {
+					$('#demo4').datepicker({
+						endDate: datestr,
+						format:"yyyy-mm-dd"
+					});
+			})
+			init();
+			<!--详细列表查询-->
+			 $("#userList").on("click",".user",function(){
+				if($("#currentChannelType").val()== 1){
+					var user=$(this).text();
+					
+					window.open ("userChannelRedirect.do?username="+user, "_blank" ) ;
+					
+				}
+				if($("#currentChannelType").val() == 2){
+					var user=$(this).text();
+					
+					window.open ("merchantChannelRedirect.do?username="+user , "_blank" ) ;
+					
+				}
+				
+				if($("#currentChannelType").val() == 3){
+					var invitecode=$(this).closest("td").next().text();
+					
+					window.open ("customedChannelRedirect.do?username="+invitecode, "_blank" ) ;
+					
+				}
+			}); 
+	
+		})  
+	 	var init=function(){
+			$("#merchant").on("click",function(){
+				queryDataList(1,2);
+			});
+			$("#custom").on("click",function(){
+				queryDataList(1,3);
+			});
+			$("#index").on("click",function(){
+				queryDataList(1,1);
+			});
+			$("#channelbtn").on("click",function(){
+				queryDataList(1,$("#currentChannelType").val());
+			});
+			queryDataList();
+		} 
+		<!--注册人数列表-->
+		function registerSuccessDetail(code){
+			var start=$('#startTime').val();
+			var end=$('#endTime').val()
+			
+			if($("#currentChannelType").val()== 1){
+				
+				window.open ("userInvitedListRedirect.do?invitecode="+code+"&start="+start+"&end="+end , "_blank" ) ;
+				
+			}
+			if($("#currentChannelType").val() == 2){
+				window.open ("userInvitedListRedirect.do?invitecode="+code+"&start="+start+"&end="+end , "_blank" ) ;
+			
+			}
+			
+			if($("#currentChannelType").val() == 3){
+				window.open ("userInvitedListRedirect.do?invitecode="+code+"&start="+start+"&end="+end , "_blank" ) ;
+				
+			}
+		}
+		
+
+		
+		function queryDataList(pageNo,channelType){
+			$("#userList").html("");
+			var param,
+			pageNo=pageNo?pageNo:1;
+			channelType=channelType?channelType:1;
+			$("#currentChannelType").attr("value",channelType);
+			param = {"channelType":channelType,"pageNo":pageNo,"pageSize":"10","channelName" : $('#channelName').val(),"inviteCode":$('#inviteCode').val(),"startTime":$('#startTime').val(),"endTime":$('#endTime').val()};
+			$.ajax({
+		        type: "post",
+		        dataType: "json",
+		        data:param,
+		        beforeSend: function () {
+		        	$("#loadingDiv").show();
+                },
+		        url: "/channel/queryDataList.json",
+		        success: function (data) {
+		        	var htm = "";
+		        	for (var i = 0; i < data.webResult.data.length; i++) {
+					    var code = data.webResult.data[i].successRegisterRate;
+						htm += "<tr>";
+						htm += "<td class='center aligned'><label id='user'> <a href='javascript:void(0)' class='user'>" + data.webResult.data[i].channelName + "</a></label></td>";
+						htm += "<td class='center aligned'><label id='invitecode'>" + data.webResult.data[i].inviteCode + "</label></td>";
+						htm += "<td class='center aligned'><label id='channelId'>" + data.webResult.data[i].scanCodePersonNum + "</label></td>";
+						htm += "<td class='center aligned'><label id='channelId'>" + data.webResult.data[i].successRegisterRate + "</label></td>";
+						htm += "<td class='center aligned'><label id='inviteaaa'> <a href='javascript:void()' onclick=registerSuccessDetail('"+data.webResult.data[i].inviteCode+"') >" + data.webResult.data[i].successRegisterNum + "</a></label></td>";
+						htm += "<td class='center aligned'><label id='orderRate'>" + data.webResult.data[i].orderRate + "</label></td>";
+						htm += "<td class='center aligned'><label id='channelId'>" + data.webResult.data[i].registerNumRanking + "</label></td>";
+						if($("#currentChannelType").val()==1){
+							htm += "<td class='center aligned'><label id='channelId'>" + data.webResult.data[i].sendCouponNum + "</label></td>";
+						}
+						htm += "</tr>";
+					}
+					$("#userList").html(htm);
+					render(pageNo,data.webResult.total);
+					$("#loadingDiv").hide();
+		        },
+		        error:function(XMLHttpRequest, textStatus, errorThrown){
+		        	$("#loadingDiv").hide();
+		        	console.log(XMLHttpRequest.status);
+		        	console.log(XMLHttpRequest.readyState);
+		        	console.log(textStatus);
+		        }
+		    });
+		}
+		</script>
+<script>
+
+
+
+
+
+</script>
+	</head>
+
+	<body>
+		
+		<div class="sui-container ui-sortable">
+			<ul class="sui-nav nav-tabs mb0 nav-primary">
+				<li class="active">
+					<a href="#index" data-toggle="tab" id="index">
+						<h4>个人用户推广渠道</h4>
+					</a>
+				</li>
+				<li>
+					<a href="#merchant" data-toggle="tab" id="merchant">
+						<h4>商家推广渠道</h4>
+					</a>
+				</li>
+				<li>
+			<a href="#custom" data-toggle="tab" id="custom">
+						<h4>自定义推广渠道</h4>
+					</a>
+				</li>
+			</ul>
+			<div class="tab-content tab-wraped">
+				<div id="index" class="tab-pane active">
+					<form class="sui-form form-horizontal" >
+						<input type="hidden" id="currentChannelType" value="1" />
+						<div class="control-group">
+							<label for="inputEmail" class="control-label">渠道名称：</label>
+							<div class="controls">
+								<input type="text" id="channelName" placeholder="">
+							</div>
+							<label for="inputEmail" class="control-label">邀请码：</label>
+							<div class="controls">
+								<input type="text" id="inviteCode" placeholder="">
+							</div>
+							<label for="inputEmail" class="control-label">邀请时间段：</label>
+							<div id="demo4" class="control-group input-daterange">
+								<div class="controls">
+								<input id ="startTime" type="text" class="input-medium input-date"><span>-</span>
+								<input id="endTime" type="text" class="input-medium input-date">
+								</div>
+							</div>
+							<div class="controls">
+								<!-- <button type="submit" class="sui-btn btn-primary">查询</button> -->
+								<button type="button" class="sui-btn btn-primary" id="channelbtn">查询</button>
+							</div>
+						</div>
+					</form>
+					<table class="sui-table table-bordered">
+						<thead>
+							<tr>
+								<th>邀请渠道(账号)</th>
+								<th>邀请码</th>
+								<th>邀请码扫码次数人数</th>
+								<th>成功邀请注册率</th>
+								<th>成功邀请注册人数</th>
+								<th>邀请下单率</th>
+								<th>注册数排名</th>
+								<th>奖励</th>
+							</tr>
+						</thead>
+						<tbody id="userList">						
+						</tbody>
+					</table>
+			</div>
+			<div id="merchant" class="tab-pane">
+				<form class="sui-form form-horizontal" >
+						<div class="control-group">
+							<label for="inputEmail" class="control-label">渠道名称：</label>
+							<div class="controls">
+								<input type="text" id="channelName" placeholder="">
+							</div>
+							<label for="inputEmail" class="control-label">邀请码：</label>
+							<div class="controls">
+								<input type="text" id="inviteCode" placeholder="">
+							</div>
+							<label for="inputEmail" class="control-label">邀请时间段：</label>
+							<div id="demo4" class="control-group input-daterange">
+								<div class="controls">
+								<input id ="startTime" type="text" class="input-medium input-date"><span>-</span>
+								<input id="endTime" type="text" class="input-medium input-date">
+								</div>
+							</div>
+							<div class="controls">
+								<!-- <button type="submit" class="sui-btn btn-primary">查询</button> -->
+								<button type="button" class="sui-btn btn-primary" id="subBtn" onclick="queryDataList();">查询</button>
+							</div>
+						</div>
+					</form>
+					<table class="sui-table table-bordered">
+						<thead>
+							<tr>
+								<th>邀请渠道</th>
+								<th>邀请码</th>
+								<th>邀请码扫码次数人数</th>
+								<th>成功邀请注册率</th>
+								<th>成功邀请注册人数</th>
+								<th>邀请下单率</th>
+								<th>注册数排名</th>
+								<th>奖励</th>
+							</tr>
+						</thead>
+						<tbody id="userList">						
+						</tbody>
+					</table>
+			</div>
+			<div id="custom" class="tab-pane">
+				<form class="sui-form form-horizontal" >
+						<div class="control-group">
+							<label for="inputEmail" class="control-label">渠道名称：</label>
+							<div class="controls">
+								<input type="text" id="channelName" placeholder="">
+							</div>
+							<label for="inputEmail" class="control-label">邀请码：</label>
+							<div class="controls">
+								<input type="text" id="inviteCode" placeholder="">
+							</div>
+							<label for="inputEmail" class="control-label">邀请时间段：</label>
+							<div id="demo4" class="control-group input-daterange">
+								<div class="controls">
+								<input id ="startTime" type="text" class="input-medium input-date"><span>-</span>
+								<input id="endTime" type="text" class="input-medium input-date">
+								</div>
+							</div>
+							<div class="controls">
+								<!-- <button type="submit" class="sui-btn btn-primary">查询</button> -->
+								<button type="button" class="sui-btn btn-primary" id="subBtn" onclick="queryDataList();">查询</button>
+							</div>
+						</div>
+					</form>
+					<table class="sui-table table-bordered">
+						<thead>
+							<tr>
+								<th>邀请渠道</th>
+								<th>邀请码</th>
+								<th>邀请码扫码次数人数</th>
+								<th>成功邀请注册率</th>
+								<th>成功邀请注册人数</th>
+								<th>邀请下单率</th>
+								<th>注册数排名</th>
+								<th>奖励</th>
+							</tr>
+						</thead>
+						<tbody id="userList">						
+						</tbody>
+					</table>
+			</div>
+			<center><div class="sui-loading loading-light loading-inline" id="loadingDiv"><i class="sui-icon icon-pc-loading"></i></div></center>
+			<div class="sui-pagination pagination-large" id="pagetest" style="text-align: right;"></div>
+		</div>
+	</body>
+
+</html>

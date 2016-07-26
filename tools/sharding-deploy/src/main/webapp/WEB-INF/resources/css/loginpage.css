@@ -1,0 +1,138 @@
+
+.list_top{
+	margin-top:10px; margin-left:20px;
+}
+.list_top>p{
+	float:left; width:auto; margin-right:20px; margin-bottom:10px; min-height:30px;
+}
+.list_top input[type=text],.list_top select{
+	height:25px; line-height:normal; border:1px solid #ddd;color:#444; font-family:'΢���ź�';
+}
+.btn2_fr input[type=button],.btn2_fr input[type=reset]{
+	margin-right:15px;
+}
+.Wdate{
+	text-indent:5px;
+}
+.listConWrap{
+	border-top:1px solid #d7e8f1; margin-top:20px; padding-top:10px;
+}
+#listTable{
+	margin-top:10px;
+}
+.addListDialog{
+	width:95%; margin:0 auto; 
+}
+.addListDialog p{
+	margin-bottom:10px; font-size:14px;
+}
+.addListTitle{
+	display:inline-block; margin-right:10px;
+}
+
+
+.wrapList{
+	width:90%; margin:15px auto;
+}
+.topHead{
+	text-align:right;
+}
+.listDetailWrap{
+	width:auto;  margin-top:25px;
+}
+.listDetailWrap h3{
+	font-size:16px;
+}
+.listDetailWrap input[type='text'],.listDetailWrap select{
+	height:30px; line-height:30px; border:1px solid #ddd; min-width:150px;
+}
+.listDetailWrap>p{
+	width:auto; height:auto; margin-bottom:15px;
+}
+.detailTitle{
+	font-size:14px; display:inline-block; margin-right:10px; text-align:right; min-width:100px;
+}
+.jlType p{
+	margin-bottom:15px;
+}
+.jlType input[type=button]{
+	margin-left:15px;
+}
+input[type=text]{
+	text-indent:10px;
+}
+textarea{
+	border:1px solid #ddd; width:400px; height:80px;
+}
+.orderTypeWrap>.detailTitle{
+	float:left;
+}
+.orderTypeWrap{
+	height:auto; overflow:hidden; 
+}
+.rightChoose{
+	width:auto; height:auto; overflow:hidden; float:left;width:80%;
+}
+.spanWrap{
+	display:inline-block; margin-right:20px; margin-bottom:15px;
+}
+.spanWrap:first-of-type{
+	margin-left:20px;
+}
+.clone .addJL,.clone .removeJL{
+	display:none;
+}
+.modal-body{
+	max-height:500px; overflow:auto;
+}
+@media (min-width: 768px){
+	.modal.fade .modal-dialog{
+		width:1000px; left:50%; margin-left:-500px;
+	}
+}
+.spanOne,.hideA{
+	display:none;
+}
+.span1{
+	display:inline-block;
+}
+.redBorder{
+	border:1px solid #f00 !important;
+}
+.imgShowUrl{
+	max-width:140px; max-height:140px; margin-left:130px; border:3px solid #eee; margin-bottom:20px;
+}
+#bigType{
+	margin-right:10px;
+}
+.eletypeattr{
+	margin-bottom:15px;margin-left:128px;height:auto; overflow:hidden;
+}
+.eletype,.expt,.eletypeattr{
+	display:none;
+}
+.expt{
+	float:left; width:150px; margin-right:15px;
+}
+.selectContent{
+	width:80px !important;
+}
+.clientType,.clientType+label{
+	vertical-align:middle; margin-top:0 !important; margin-bottom:0 !important;
+}
+.clientType+label{
+	margin-right:10px; cursor:pointer;
+}
+.detailTitle{margin-right:25px;}
+#elementContent{text-indent:4;padding-left:0;}
+.MSimg{text-align:left !important;}
+.MSimg img{max-width:60px;}
+#jlDialogForm .list_top{margin-left:0;}
+#jlDialogForm .list_top>p{margin-right:10px;}
+#jlDialogForm .btn2_fr input[type=button],#jlDialogForm .btn2_fr input[type=reset]{margin-right:8px;}
+#GoodsModal table.input th,#LtModal table.input th,#ppModal  table.input th,#MdModal table.input th{width:auto;text-align:center;}
+#GoodsModal table.input td,#ppModal table.input td,#LtModal table.input td,#MdModal table.input td{text-align:center;}
+#GoodsModal .list_top>p,#MdModal .list_top>p{margin-right:15px;}
+#pplbTable img{max-width:100px; max-height:60px;}
+.provinceId,.cityId,.areaId{width:100px;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow: hidden;}
+.bottomBtn{height: auto;overflow: hidden;text-align: right; display: block;clear: both;margin-right: 8px;margin-bottom: 10px;}

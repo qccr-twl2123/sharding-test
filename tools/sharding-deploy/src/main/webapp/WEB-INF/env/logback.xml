@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">  
+	<contextName>dinner</contextName> 
+	<property name="LOG_CHARSET" value="UTF-8" />
+	<property name="LOG_PATH" value="/data/html/logs/dinner" />   
+	
+    <!-- 控制台输出日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </layout>
+    </appender>
+    
+    
+    <!-- common -->
+    <appender name="common" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_PATH}/dinner-common.log</File>
+        <Encoding>${LOG_CHARSET}</Encoding>
+		
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>
+				${LOG_PATH}/dinner-common-%d{yyyy-MM-dd}.%i.log
+			</FileNamePattern>
+			<!-- keep 30 days worth of history-->
+			<MaxHistory>30</MaxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+		        <!-- rollover daily or whenever the file size reaches 50MB -->
+		        <maxFileSize>50MB</maxFileSize>
+		    </timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy> 
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+    
+    
+        <!-- dal -->
+    <appender name="dal" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_PATH}/dinner-dal.log</File>
+        <Encoding>${LOG_CHARSET}</Encoding>
+		
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>
+				${LOG_PATH}/dinner-dal-%d{yyyy-MM-dd}.%i.log
+			</FileNamePattern>
+			<!-- keep 30 days worth of history-->
+			<MaxHistory>30</MaxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+		        <!-- rollover daily or whenever the file size reaches 50MB -->
+		        <maxFileSize>50MB</maxFileSize>
+		    </timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy> 
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+    
+    
+        <!-- biz -->
+    <appender name="biz" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_PATH}/dinner-biz.log</File>
+        <Encoding>${LOG_CHARSET}</Encoding>
+		
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>
+				${LOG_PATH}/dinner-biz-%d{yyyy-MM-dd}.%i.log
+			</FileNamePattern>
+			<!-- keep 30 days worth of history-->
+			<MaxHistory>30</MaxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+		        <!-- rollover daily or whenever the file size reaches 50MB -->
+		        <maxFileSize>50MB</maxFileSize>
+		    </timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy> 
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+    
+        <!-- integration -->
+    <appender name="integration" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_PATH}/dinner-integ.log</File>
+        <Encoding>${LOG_CHARSET}</Encoding>
+		
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>
+				${LOG_PATH}/dinner-integ-%d{yyyy-MM-dd}.%i.log
+			</FileNamePattern>
+			<!-- keep 30 days worth of history-->
+			<MaxHistory>30</MaxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+		        <!-- rollover daily or whenever the file size reaches 50MB -->
+		        <maxFileSize>50MB</maxFileSize>
+		    </timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy> 
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+    
+    <!-- error -->
+    <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_PATH}/dinner-error.log</File>
+        <Encoding>${LOG_CHARSET}</Encoding>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>
+				${LOG_PATH}/dinner-error-%d{yyyy-MM-dd}.%i.log
+			</FileNamePattern>
+			<!-- keep 30 days worth of history-->
+			<MaxHistory>30</MaxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+		        <!-- rollover daily or whenever the file size reaches 50MB -->
+		        <maxFileSize>50MB</maxFileSize>
+		    </timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy> 
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <!-- digest -->
+    <appender name="dinner-DIGEST-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_PATH}/dinner-digest.log</File>
+        <Encoding>${LOG_CHARSET}</Encoding>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>
+				${LOG_PATH}/dinner-digest-%d{yyyy-MM-dd}.%i.log
+			</FileNamePattern>
+			<!-- keep 30 days worth of history-->
+			<MaxHistory>30</MaxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+		        <!-- rollover daily or whenever the file size reaches 50MB -->
+		        <maxFileSize>50MB</maxFileSize>
+		    </timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy> 
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    
+    <!-- digest  -->  
+    <logger name="com.qccr.dinner.common.template" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="dinner-DIGEST-APPENDER" />
+		<appender-ref ref="error" />
+	</logger>
+		
+      <!-- commom package -->      
+    <logger name="com.qccr.dinner.common"  additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="common" />
+        <appender-ref ref="error" />
+    </logger>
+    
+    
+          <!-- dal package -->      
+    <logger name="com.qccr.dinner.dal"  additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="dal" />
+        <appender-ref ref="error" />
+    </logger>
+    
+    
+          <!-- biz package -->      
+    <logger name="com.qccr.dinner.biz"  additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="biz" />
+        <appender-ref ref="error" />
+    </logger>
+    
+    
+          <!-- integration package -->      
+    <logger name="com.qccr.dinner.integration"  additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="integration" />
+        <appender-ref ref="error" />
+    </logger>
+    
+    <logger name="logback"/>   
+
+	<root level="DEBUG">             
+	    <appender-ref ref="STDOUT" />   
+	    <appender-ref ref="error" />   
+	</root> 
+  
+</configuration>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qccr.dinner.dal.notify.NotifyDao">
+
+    <resultMap id="NotifyDO" type="com.qccr.dinner.model.notify.NotifyDO">
+		<result column="id" property="id" />
+		<result column="type" property="type" />
+		<result column="target" property="target" />
+		<result column="target_type" property="targetType" />
+		<result column="action" property="action" />
+		<result column="sender" property="sender" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+	<sql id="all_column">
+		type,target,target_type,action,sender,create_time
+	</sql>
+	
+    <insert id="insertNotify" parameterType="com.qccr.dinner.model.notify.NotifyDO">
+        	insert into notify (<include refid="all_column"/>) values
+        	(#{type}, #{target}, #{targetType}, #{action}, #{sender}, now())
+	</insert>
+	
+</mapper>

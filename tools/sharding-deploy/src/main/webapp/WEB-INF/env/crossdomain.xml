@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cross-domain-policy SYSTEM 
+"http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd" > 
+<cross-domain-policy> 
+	<allow-access-from domain="*.csqccr.com" secure="true" /> 
+	<allow-access-from domain="*.kfqccr.com" secure="true" /> 
+	<allow-access-from domain="*.qccr.com" secure="true" /> 
+</cross-domain-policy>

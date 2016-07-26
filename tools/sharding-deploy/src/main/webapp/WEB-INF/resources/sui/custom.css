@@ -1,0 +1,150 @@
+body {
+	font-size: 14px;
+}
+
+.container {
+	margin: 0 auto;
+	width: 1010px;
+}
+
+.sui-form {
+	font-size: 14px;
+}
+
+.wt {
+	width: 70px !important;
+}
+
+.mh500 {
+	height: 500px !important;
+}
+
+.ml110 {
+	width: 110px !important;
+}
+
+.mb0 {
+	margin-bottom: 0px !important;
+}
+
+.float-left {
+	float: left;
+}
+
+.conwidth {
+	width: 1130px !important;
+	margin-left: -531px !important;
+	margin-top: -300px !important;
+}
+
+
+/*upload*/
+
+.upload-label {
+	position: absolute;
+	display: inline-block;
+	padding: 5px 0;
+	width: 120px;
+	border: 1px solid #ccc;
+	left: 15%;
+	top: 50%;
+	margin-top: -15px;
+	margin-left: 2px;
+	background-color: #fff;
+	text-align: center;
+}
+
+
+/*订单成功*/
+
+.img {
+	margin: 0 auto;
+	width: 300px;
+	margin-top: 150px;
+}
+
+.img span {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+
+/* 订单审核与详情页面 */
+
+.m-underline-title {
+	font-size: 18px;
+	line-height: 1.6;
+	border-bottom: 2px solid #666;
+}
+
+.z-order {
+	padding-bottom: 20px;
+}
+
+.m-part .part-title {
+	line-height: 30px;
+	height: 30px;
+	font-size: 14px;
+	background-color: #28a3ef;
+	padding-left: 10px;
+	color: #fff;
+}
+
+.m-part .info {
+	padding-left: 20px;
+}
+
+.m-form .item {
+	*zoom: 1;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+.m-form p {
+	margin: 0;
+}
+
+.m-form .item:after {
+	clear: both;
+	content: "";
+	overflow: hidden;
+	height: 0;
+	display: block
+}
+
+.m-form .item .label {
+	display: inline;
+	width: 80px;
+	float: left;
+}
+
+.m-form .item .content {
+	margin-left: 90px;
+}
+
+.m-form .item .pic-show {
+	display: block;
+	width: 200px;
+	height: 200px;
+}
+
+.z-order .instructions {
+	resize: none;
+	width: 800px;
+	height: 120px;
+	outline: none;
+	border: 1px solid #ccc;
+	padding: 8px;
+	border-radius: 5px;
+	line-height: 1.5;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+.z-order .operate-btn {
+	margin-left: 20px;
+}
+
+.z-order .tab-content.tab-wraped {
+	border: none;
+}
