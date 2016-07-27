@@ -1,33 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>                        
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:context="http://www.springframework.org/schema/context" 
-    xmlns:tx="http://www.springframework.org/schema/tx"
-    xmlns:rdb="http://www.dangdang.com/schema/ddframe/rdb"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-                        http://www.springframework.org/schema/beans/spring-beans.xsd 
-                        http://www.springframework.org/schema/tx 
-                        http://www.springframework.org/schema/tx/spring-tx.xsd
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:rdb="http://www.dangdang.com/schema/ddframe/rdb" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/context 
-                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/context/spring-context.xsd 
                         http://www.dangdang.com/schema/ddframe/rdb 
-                        http://www.dangdang.com/schema/ddframe/rdb/rdb.xsd">
+                        http://www.dangdang.com/schema/ddframe/rdb/rdb.xsd 
+                        ">
         
         	
 	<context:component-scan base-package="com.study.dangdang.sharding.jdbc" />
 
     <bean id="sharding_0" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/sharding_0"/>
-        <property name="username" value="root"/>
-        <property name="password" value="xrl123456"/>
+        <property name="url" value="${jdbc_url0}"/>
+        <property name="username" value="${jdbc_username0}"/>
+        <property name="password" value="${jdbc_password0}"/>
     </bean>
     
     <bean id="sharding_1" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/sharding_1"/>
-        <property name="username" value="root"/>
-        <property name="password" value="xrl123456"/>
+        <property name="url" value="${jdbc_url1}"/>
+        <property name="username" value="${jdbc_username1}"/>
+        <property name="password" value="${jdbc_password1}"/>
     </bean>
     
 	

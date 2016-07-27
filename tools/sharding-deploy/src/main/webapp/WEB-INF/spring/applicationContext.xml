@@ -9,20 +9,14 @@
     
 	<import resource="local/springbeans-mvc.xml"/>
 	<import resource="local/springbeans-base.xml"/>
-	
+	<import resource="local/springbeans-datasource.xml"/>
+	<!-- 
 	<import resource="local/spring-database.xml"/>
 	<import resource="local/spring-sharding.xml"/>
-	<!-- 
-	<import resource="local/springbeans-datasource.xml"/>
-	
 	 -->
-	
-	
-	
+	 
 	<import resource="local/springbeans-dal.xml"/>
 	<import resource="local/springbeans-biz.xml"/>
-	
-
 	<import resource="remote/springbeans-consumer.xml"/>
 
 </beans>
