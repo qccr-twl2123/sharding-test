@@ -11,9 +11,10 @@
 	<import resource="local/springbeans-base.xml"/>
 	<import resource="local/spring-database.xml"/>
 	<import resource="local/spring-sharding.xml"/>
+	
 	<!-- 
 	<import resource="local/springbeans-datasource.xml"/>
-	
+
 	 -->
 	 
 	<import resource="local/springbeans-dal.xml"/>

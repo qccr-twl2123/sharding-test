@@ -7,6 +7,7 @@
 		<result column="user_id" property="userId" />
 		<result column="name" property="name" />
 		<result column="age" property="age" />
+		<result column="create_time" property="createTime" />
 	</resultMap>
 	
 	
@@ -15,7 +16,7 @@
   </sql>
 
   <insert id="insert">
-    insert into t_user (user_id,name,age,create_time) values (#{userId},#{name},#{age}, #{create_time})
+    insert into t_user (user_id,name,age,create_time) values (#{userId},#{name},#{age}, now())
   </insert>
   
   <select id="findAll" resultMap="resultMap">
