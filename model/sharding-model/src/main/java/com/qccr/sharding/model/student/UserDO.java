@@ -5,6 +5,7 @@
 package com.qccr.sharding.model.student;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -25,6 +26,8 @@ public class UserDO implements Serializable{
     private String name;
     
     private Integer age;
+    
+    private Date  createTime;
 
     public Integer getId() {
         return id;
@@ -58,7 +61,17 @@ public class UserDO implements Serializable{
         this.age = age;
     }
     
-    public String toString() {
+    
+    
+    public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public String toString() {
         return ToStringBuilder.reflectionToString (this, ToStringStyle.JSON_STYLE);
       }
 
