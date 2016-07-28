@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.qccr.sharding.biz.service.student.UserService;
 import com.qccr.sharding.model.student.UserDO;
 
-@Controller("/sharding")
+@Controller
+@RequestMapping("/sharding")
 public class ShardingController  extends BaseController{
 	
 	@Resource
